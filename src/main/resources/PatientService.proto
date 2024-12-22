@@ -1,0 +1,30 @@
+syntax="proto3";
+option java_package = "org.sid.project_allports.stub";
+service PatientService {
+  rpc getAllPatients(GetAllPatientsRequest) returns (GetAllPatientsResponse);
+  rpc getPatient(GetPatientByIdRequest) returns (GetPatientByIdResponse);
+  rpc addPatient(AddPatientRequest) returns (AddPatientResponse);
+}
+message GetAllPatientsRequest {
+}
+message GetAllPatientsResponse {
+  repeated Patient patients = 1;
+}
+message Patient {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+message GetPatientByIdRequest {
+  int64 patientId = 1;
+}
+message GetPatientByIdResponse {
+  Patient patient = 1;
+}
+message AddPatientRequest {
+  string name = 1;
+  string email = 2;
+}
+message AddPatientResponse {
+  Patient patient = 1;
+}
